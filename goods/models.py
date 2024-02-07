@@ -7,8 +7,8 @@ class Category(models.Model):
 
     class Meta:
         db_table = "category"
-        verbose_name = "Каталог"
-        verbose_name_plural = "Каталоги"
+        verbose_name = "Категорию"
+        verbose_name_plural = "Категории"
 
     def __str__(self):
         return self.title

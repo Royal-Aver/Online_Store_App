@@ -54,13 +54,13 @@
                         <img src="../deps/images/goods/set of tea table and three chairs.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <a href="{% url "goods:product" %}">
-                                <p class="card-title">{% product.title %}</p>
+                                <p class="card-title">{{ product.title }}</p>
                             </a>
-                            <p class="card-text text-truncate">{% product.description %}</p>
+                            <p class="card-text text-truncate">{{ product.description }}</p>
                             <p class="product_id">id: 02265</p>
                             <div class="d-flex justify-content-between">
-                                <p><s>{% product.price %}</s> $</p>
-                                <p><strong>{% product.discount %} $</strong></p>
+                                <p><s>{{ product.price }}</s> руб.</p>
+                                <p><strong>{{ product.discount }} руб.</strong></p>
                                 <span class="badge bg-warning text-dark">Скидка 10.00 %</span>
                                 <!-- <p><strong>100.00 $</strong></p> -->
                                 <a href="#" class="btn add-to-cart">
