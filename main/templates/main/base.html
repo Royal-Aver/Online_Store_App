@@ -89,7 +89,7 @@
                     {% tag_categories as categories %}
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
                         {% for category in categories %}
-                            <li><a class="dropdown-item text-white" href="{% url "goods:category" %}">{{ category.title }}</a></li>
+                            <li><a class="dropdown-item text-white" href="{% url "goods:category" category.slug %}">{{ category.title }}</a></li>
                         {% endfor %}
                         {% comment %} <li><a class="dropdown-item text-white" href="{% url "goods:catalog" %}">Все товары</a></li>
                         <li><a class="dropdown-item text-white" href="goods/catalog.html">Кухня</a></li>
