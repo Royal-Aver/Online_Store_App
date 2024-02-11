@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import get_list_or_404, render
 from goods.models import Products
 
 
-def categories(request):
-    products = Products.objects.all()
+def categories(request, category_slug):
+    if category_slug == 'vse':
+        products = Products.objects.all()
+    else:
+        products = get_list_or_404(Products.objects.filter(category__slug=category_slug))
     context = {
         "title": "Каталог",
         'products': products,

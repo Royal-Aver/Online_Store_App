@@ -42,12 +42,12 @@ class Products(models.Model):
         return self.title
 
     def display_id(self):
-        '''Отображение id товара'''
+        """Отображение id товара"""
         return f"{self.id:05}"
 
     def sale_price(self):
-        '''Цена товара с учетом скидки'''
+        """Цена товара с учетом скидки"""
         if self.discount:
-            return round(self.price - (self.price * self.discount) / 100 , 2)
+            return round(self.price - (self.price * self.discount) / 100, 2)
         else:
             return self.price

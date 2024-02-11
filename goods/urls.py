@@ -5,6 +5,6 @@ from goods.views import categories, products
 app_name = 'goods'
 
 urlpatterns = [
-  path('category/', categories, name='category'),
-  path('product/<slug:product_slug>', products, name='product'),
+  path('category/<slug:category_slug>/', categories, name='category'),
+  path('product/<slug:product_slug>/', products, name='product'),
   ]
