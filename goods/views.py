@@ -11,10 +11,11 @@ def categories(request):
     return render(request, "goods/catalog.html", context)
 
 
-def products(request):
+def products(request, product_slug):
+    product = Products.objects.get(slug=product_slug)
 
     context = {
         "title": "Продукт",
-
+        "product": product,
     }
     return render(request, "goods/product.html", context)
