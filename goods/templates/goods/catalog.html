@@ -2,6 +2,10 @@
 {% load static %}
 {% load goods_tags %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static "css/my_footer_css.css" %}">
+{% endblock  %}
+
 {% block content %}
 <div class="container">
     <div class="row mt-1">
@@ -18,10 +22,12 @@
                         Фильтры
                     </button>
 
-                    <form action="{% url 'goods:category' slug_url %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    <form action="{% if request.GET.q %}{% url "goods:search" %}{% else %}{% url 'goods:category' slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
                         <div class="form-check text-white mx-3">
                             <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}>
-                            {% comment %} <input type="hidden" name="q" value="request.GET.q"> {% endcomment %}
+                            {% if request.GET.q %}
+                                <input type="hidden" name="q" value="{{ request.GET.q }}">
+                            {% endif %}
                             <label class="form-check-label" for="flexCheckDefault">
                                 Товары по акции
                             </label>
@@ -48,6 +54,14 @@
                         <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
                     </form>
                 </div>
+
+                {% if request.GET.q %}
+                <h3 class="mt-4">Результаты поиска по запросу {{ request.GET.q }}</h3>
+                {% if not products %}
+                    <h2 class="mt-4">По запросу ничего не найдено</h2>
+                {% endif %}
+                {% endif %}
+
                 {% for product in products %}
                 <!-- Карта товара -->
                 <div class="col-lg-4 col-md-6 p-4">
@@ -59,9 +73,25 @@
                         {% endif %}
                         <div class="card-body">
                             <a href="{% url "goods:product" product.slug %}">
-                                <p class="card-title">{{ product.title }}</p>
+                                <p class="card-title">
+                                    {% autoescape off %}
+                                        {% if product.headline %}
+                                        {{ product.headline }}
+                                        {% else %}
+                                        {{ product.title }}
+                                        {% endif %}
+                                    {% endautoescape %}
+                                </p>
                             </a>
-                            <p class="card-text">{{ product.description|truncatechars:87 }}</p>
+                            <p class="card-text">
+                                {% autoescape off %}
+                                    {% if product.headline %}
+                                        {{ product.bodyline|truncatechars:87  }}
+                                        {% else %}
+                                        {{ product.description|truncatechars:87 }}
+                                    {% endif %}
+                                {% endautoescape %}
+                            </p>
                             <p class="product_id">id: {{ product.display_id }}</p>
                             <div class="d-flex justify-content-between">
                                 {% if product.discount %}
@@ -84,30 +114,32 @@
 
             </div>
             <!-- Пагинация -->
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center my-4">
-                    <div class="custom-shadow d-flex">
+            {% if products %}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center my-4">
+                        <div class="custom-shadow d-flex">
 
-                        <li class="page-item {% if not products.has_previous %}disabled{% endif %}">
-                          <a class="page-link" href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}
-                              {% else %} # {% endif %}">Назад</a>
-                        </li>
+                            <li class="page-item {% if not products.has_previous %}disabled{% endif %}">
+                            <a class="page-link" href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}
+                                {% else %} # {% endif %}">Назад</a>
+                            </li>
 
-                        {% for page in products.paginator.page_range %}
-                            {% if page >= products.number|add:-2 and page <= products.number|add:2 %}
-                                <li class="page-item {% if products.number == page %}active{% endif %}">
-                                    <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
+                            {% for page in products.paginator.page_range %}
+                                {% if page >= products.number|add:-2 and page <= products.number|add:2 %}
+                                    <li class="page-item {% if products.number == page %}active{% endif %}">
+                                        <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
 
-                        <li class="page-item {% if not products.has_next %}disabled{% endif %}">
-                            <a class="page-link" href="{% if products.has_next %}?{% change_params page=products.next_page_number %}
-                            {% else %} # {% endif %}">Вперед</a>
-                        </li>
-                    </div>
-                </ul>
-            </nav>
+                            <li class="page-item {% if not products.has_next %}disabled{% endif %}">
+                                <a class="page-link" href="{% if products.has_next %}?{% change_params page=products.next_page_number %}
+                                {% else %} # {% endif %}">Вперед</a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+            {% endif %}
         </div>
     </div>
 </div>{% endblock  %}
