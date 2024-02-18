@@ -16,6 +16,9 @@
                             <h2 class="text-center mb-4">Авторизация</h2>
                             <form action='{% url "user:login" %}' method="post">
                                 {% csrf_token %}
+                                {% if form.non_field_errors %}
+                                    {{ form.non_field_errors }}
+                                {% endif %}
                                 {% for item_form in form %}
                                 <div class="mb-3">
                                     <label for="{{ form.username.id_for_label }}" class="form-label">{{ item_form.label }}</label>
