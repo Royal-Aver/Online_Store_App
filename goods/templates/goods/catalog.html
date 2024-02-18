@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% load goods_tags %}
 
@@ -67,7 +67,7 @@
                 <div class="col-lg-4 col-md-6 p-4">
                     <div class="card border-primary rounded custom-shadow">
                         {% if product.image %}
-                            <img height='400' src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                            <img height='370' src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
                         {% else %}
                             <img height='400' src="{% static "images/Not found image.png" %}" class="card-img-top" alt="{{ product.title }}">
                         {% endif %}
