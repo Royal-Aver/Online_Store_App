@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <div class="container">
@@ -18,7 +19,7 @@
                                     <form>
                                         <div class="row">
                                             <div class="col-md-12 mb-3 text-center">
-                                                <img src="../deps/images/baseavatar.jpg"
+                                                <img src="{% static "images/baseavatar.jpg" %}"
                                                     alt="Аватар пользователя" class="img-fluid rounded-circle"
                                                     style="max-width: 150px;">
                                                 <input type="file" class="form-control mt-3" id="avatar"
@@ -83,7 +84,7 @@
                                                         <div class="col p-0"><strong>100.00 $</strong></div>
                                                         <div class="col p-0">
                                                             <a href="#" class="remove-from-cart" data-cart-id="">
-                                                                <img class="mx-1" src="../deps/icons/trash3-fill.svg"
+                                                                <img class="mx-1" src="{% static "icons/trash3-fill.svg" %}"
                                                                     alt="Catalog Icon" width="16" height="16">
                                                             </a>
                                                         </div>
