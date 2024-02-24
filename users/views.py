@@ -61,6 +61,11 @@ def registration(request):
 
     return render(request, "users/registration.html", context)
 
+
+def users_cart(request):
+    return render(request, "users/users_cart.html")
+
+
 @login_required
 def logout(request):
     auth.logout(request)
