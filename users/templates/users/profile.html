@@ -106,9 +106,11 @@
                                         {% include "carts/includes/included_cart.html" %}
                                         <!-- Закончилась разметка корзины -->
                                     </div>
-                                    <a class="btn btn-dark" href="../orders/create_order.html">
-                                        Оформить заказ
-                                    </a>
+                                    {% if carts %}
+                                        <a class="btn btn-dark" href="../orders/create_order.html">
+                                            Оформить заказ
+                                        </a>
+                                    {% endif %}
                                 </div>
                             </div>
                             <!-- Оформленные заказы -->
@@ -139,15 +141,15 @@
                                                                 <tr>
                                                                     <td><a class="text-white" href="#">Комплект стол и три стула</a></td>
                                                                     <td>1</td>
-                                                                    <td>255.00 $</td>
-                                                                    <td>255.00 $</td>
+                                                                    <td>255.00 руб.</td>
+                                                                    <td>255.00 руб.</td>
 
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                         <div class="d-flex justify-content-between">
                                                             <p><strong>Итого:</strong></p>
-                                                            <p><strong>255.00 $</strong></p>
+                                                            <p><strong>255.00 руб.</strong></p>
 
                                                         </div>
                                                     </div>
@@ -174,8 +176,8 @@
                                                                 <tr>
                                                                     <td><a class="text-white" href="#">Стул офисный</a></td>
                                                                     <td>2</td>
-                                                                    <td>30.00 $</td>
-                                                                    <td>60.00 $</td>
+                                                                    <td>30.00 руб.</td>
+                                                                    <td>60.00 руб.</td>
 
                                                                 </tr>
                                                             </tbody>
