@@ -25,7 +25,7 @@ class CartQuerySet(models.QuerySet):
 class Cart(models.Model):
     user = models.ForeignKey(
         to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Пользователь"
-    )
+    )  # blank=True, null=True - для того, чтобы неавторизованные пользователи могли добавлять в корзину
     product = models.ForeignKey(
         to=Products, on_delete=models.CASCADE, verbose_name="Товар"
     )
