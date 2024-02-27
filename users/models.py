@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
   avatar = models.ImageField(upload_to="users_avatars", blank=True, null=True, verbose_name="Аватар")
+  phone_number = models.CharField(max_length=20, blank=True, null=True, verbose_name="Номер телефона")
 
   class Meta:
     db_table = 'user'
