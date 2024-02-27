@@ -41,11 +41,15 @@ class Products(models.Model):
         return self.title
 
     def display_id(self):
-        """Отображение id товара"""
+        """
+    	Method to display the ID with leading zeros up to 5 digits.
+    	"""
         return f"{self.id:05}"
 
     def sale_price(self):
-        """Цена товара с учетом скидки"""
+        """
+        Calculate the sale price based on the discount, if any.
+        """
         if self.discount:
             return round(self.price - (self.price * self.discount) / 100, 2)
         else:

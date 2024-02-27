@@ -52,6 +52,9 @@ class OrderItem(models.Model):
   objects = OrderItemQuerySet.as_manager()
 
   def products_price(self):
+    """
+    Calculate the total price of the products by multiplying the price and quantity and rounding the result to 2 decimal places.
+    """
     return round(self.price * self.quantity, 2)
 
   def __str__(self):
