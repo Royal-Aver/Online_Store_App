@@ -18,17 +18,14 @@
         </div>
         <div class="col-lg-10">
             <!-- Контент на странице -->
-            <h1 class="mt-5 pt-5 text-light bg-dark"><strong>Магазин компьютерных игр Gamerok</strong></h1>
+            {% comment %} <h1 class="mt-5 pt-5 text-light bg-dark"><strong>Магазин компьютерных игр Gamerok</strong></h1> {% endcomment %}
+            <img src="{% static "images\image.png" %}">
         </div>
     </div>
 </div>
 {% endblock  %}
 
 {% block footer %}
-<footer class="py-4 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
-    </div>
-</footer>
+    {% include "includes/footer.html" %}
 {% endblock  %}
 
