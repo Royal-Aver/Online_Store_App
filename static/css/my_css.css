@@ -36,3 +36,11 @@ body {
   border-radius: 15px;
   font-size: 0.7rem;
 }
+
+.dropdown-toggle:hover {
+  color: #198754;
+}
+
+.nav-item:hover {
+  color: #198754;
+}
