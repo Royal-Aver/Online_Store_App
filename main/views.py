@@ -3,7 +3,7 @@ from goods.models import Category
 
 def index(request):
   context = {
-    'title': 'Главная',
+    'title': "Gamer's Galaxy",
   }
   return render(request, 'main/index.html', context)
 

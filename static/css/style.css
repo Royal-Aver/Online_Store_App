@@ -1,0 +1,268 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body {
+  font-family: "Dhurjati", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #66fcf1;
+  background-color: #1f2833;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  min-height: 140px;
+  font-size: 30px;
+  position: relative;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  gap: 0 65px;
+}
+
+.menu__link {
+  transition: color 0.3s;
+}
+
+.menu__link:hover {
+  color: #45a29e;
+}
+
+.menu__item--profile {
+  position: relative;
+  display: inline-block;
+}
+
+.menu__link {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 40px;
+  transition: display 1s;
+}
+
+.submenu-list {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.submenu-list__item {
+  display: block;
+  width: 100%;
+}
+
+.menu__item--profile:hover .submenu-list {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.submenu-list:hover .menu__link {background-color: #3e8e41;}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+}
+
+.user-actions__item:last-child {
+  margin-left: 80px;
+}
+
+.top-main {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)), url(../images/main/bg-top.jpg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+}
+
+.top-main__inner {
+  min-height: 600px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.top-main__title {
+  font-size: 90px;
+  margin-bottom: 30px;
+  min-width: 780px;
+  line-height: 1;
+}
+
+.top-main__subtitle {
+  font-size: 40px;
+  max-width: 650px;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.advantages {
+  padding: 100px 0;
+}
+
+.advantages__list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 0 40px;
+}
+
+.advantages__item {
+  min-width: 300px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 5px solid #45a29e;
+  border-radius: 30px;
+  position: relative;
+}
+
+.advantages__image {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.advantages__description {
+  padding-top: 10px;
+  font-size: 36px;
+}
+
+.feedback {
+  background-color: #0b0c10;
+  color: white;
+  padding: 60px 0;
+}
+
+.feedback__title {
+  color: #c5c6c7;
+  text-align: center;
+  font-size: 46px;
+  margin-bottom: 30px;
+}
+
+.feedback__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 20px;
+}
+
+.feedback__item {
+  flex-basis: 280px;
+}
+
+.feedback__text {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.feedback__author {
+  font-weight: 600;
+}
+
+.our-selection {
+  padding: 60px 0;
+}
+
+.our-selection__title {
+  color: #c5c6c7;
+  text-align: center;
+  font-size: 46px;
+  margin-bottom: 30px;
+}
+
+.our_selection__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.our_selection__item {
+  flex: 1 0 45%;
+  overflow: hidden;
+  /* padding: 10px; */
+  border: 3px solid #45a29e;
+  border-radius: 10px;
+}
+
+.our_selection__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  background-color: #0b0c10;
+  padding: 10px 0 40px;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-footer {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+.top-footer__list {
+  display: flex;
+  margin-left: 100px;
+  gap: 0 40px;
+  flex-wrap: nowrap;
+}
+
+.middle-footer__list {
+  display: flex;
+  align-items: center;
+  gap: 0 50px;
+}
+
+.bottom-footer__copyright {
+  color: white;
+  text-align: right;
+  font-size: 16px;
+  color: #c5c6c7;
+}
