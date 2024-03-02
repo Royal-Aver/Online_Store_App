@@ -63,9 +63,9 @@
 
             <li class="user-actions__item">
               <search>
-                <form action="{% url 'goods:search' %}" method="get">
-                  <input type="search" name="q" placeholder="Search" aria-label="Search"/>
-                  <button type="submit">Search</button>
+                <form action="{% url 'goods:search' %}" method="get" class="user-actions__form">
+                  <input class="user-actions__search" type="search" name="q" placeholder="Search" aria-label="Search"/>
+                  <button class="user-actions__search-btn" type="submit">Search</button>
                 </form>
               </search>
             </li>
@@ -76,31 +76,31 @@
 
     <main class="main">
 
-      <section class="catalog-menu">
-        {% comment %} <div class="container">
+        <section class="catalog-menu">
+            <div class="catalog-menu_container container">
 
-          <div class="row mt-1 position-fixed z-3">
+                <div class="catalog-menu__dropdown">
+                        <button class="catalog-menu__btn" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <span class="catalog-menu__text">Catalog</span>
+                        <img class="catalog-menu__image" src="{% static "images/icons/squares.png" %}" alt="Catalog Icon" width="16"
+                        height="16">
+                        </button>
 
-              <div class="dropdown mb-2">
-                  <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      Каталог
-                      <img class="mx-1" src="{% static "icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
-                          height="16">
-                  </button>
-                  {% tag_categories as categories %}
-                  <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                      {% for category in categories %}
-                          <li><a class="dropdown-item text-white" href="{% url "goods:category" category.slug %}">{{ category.title }}</a></li>
-                      {% endfor %}
-                  </ul>
-              </div>
+                    {% tag_categories as categories %}
+                    <ul class="catalog-menu__submenu">
+                        {% for category in categories %}
+                            <li class="catalog-menu__item">
+                                <a class="catalog-menu__link" href="{% url "goods:category" category.slug %}">{{ category.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
-              {% block modal_cart %}{% endblock  %}
+            {% block modal_cart %}{% endblock  %}
 
-          </div>
-      </div> {% endcomment %}
-      </section>
+            </div>
+        </section>
 
       {% include "includes/notification.html" %}
       {% block content %}{% endblock  %}
