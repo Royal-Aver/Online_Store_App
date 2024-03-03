@@ -5,7 +5,7 @@
 
 
   <button class="cart-button" type="button" id="openModal" aria-expanded="false">
-      <img class="cart-button__image" src="{% static "images/icons/cart.png" %}" alt="Cart" width="40" height="40">
+      <img class="cart-button__image" src="{% static "images/icons/cart.png" %}" alt="Cart" width="25" height="25">
       <span class='cart-button__count' id="goods-in-cart-count">{{ carts.total_quantity }}</span>
   </button>
 
@@ -14,24 +14,22 @@
   aria-hidden="true">
 
       <div class="modal-content">
-          <div class="modal-header">
+
               <button type="button" class="close" data-bs-dismiss="modal"
                 aria-label="Close">
                 <img src="{% static "images/icons/close.png" %}" width="20" alt="Close">
             </button>
-          </div>
-          <div class="modal-body">
-              <h3 class="text-center">Cart</h3>
-              <div class="container" id="cart-items-container">
-                  <!-- Разметка корзины -->
-                  {% include "carts/includes/included_cart.html" %}
-                  <!-- Закончилась разметка корзины -->
-              </div>
-              {% if carts %}
-                <a class="modal-btn" href="{% url 'orders:create_orders' %}">
-                    Place order
-                </a>
-              {% endif %}
-          </div>
-      </div>
+        <div class="modal-body">
+            <h3 class="text-center">Cart</h3>
+
+            <!-- Разметка корзины -->
+            {% include "carts/includes/included_cart.html" %}
+            <!-- Закончилась разметка корзины -->
+
+            {% if carts %}
+            <a class="modal-btn" href="{% url 'orders:create_orders' %}">Place order
+            </a>
+            {% endif %}
+        </div>
+    </div>
 </div>

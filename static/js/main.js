@@ -3,6 +3,11 @@ document.querySelector('.catalog-menu__btn').addEventListener('click', function(
 });
 
 
+// document.querySelector('.filter__btn').addEventListener('click', function() {
+//   document.querySelector('.filter__form-menu').classList.toggle('show-filter');
+// });
+
+
 const openModalBtn = document.getElementById('openModal');
 const modal = document.getElementById('modal');
 const closeModalBtn = document.getElementsByClassName('close')[0];
