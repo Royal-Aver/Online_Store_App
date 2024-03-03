@@ -52,7 +52,7 @@
     "pk": 10,
     "fields": {
       "title": "Все",
-      "slug": "vse"
+      "slug": "all"
     }
   }
 ]
