@@ -21,6 +21,7 @@ button {
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
+  line-height: 1;
 }
 
 .container {
@@ -86,12 +87,12 @@ position: relative;
   z-index: 2;
 }
 
-.submenu-list__item {
+.submenu-list__link {
   color: inherit;
 }
 
-.submenu-list__item:hover {
-  color: #61892f;
+.submenu-list__link:hover {
+  color: grey;
   transition: color 0.3s;
 }
 
@@ -171,7 +172,7 @@ position: relative;
   width: 150px;
   background-color: white;
   color: #0b0c10;
-  padding: 0 20px;
+  padding: 10px 20px;
   border: 1px solid #0b0c10;
   border-radius: 15px;
   cursor: pointer;
@@ -560,21 +561,20 @@ position: relative;
 /* filter */
 
 .filter {
-  /* position: absolute; */
   left: 0;
   right: 0;
-  /* top: 200px; */
   z-index: 1;
 }
 
 .filter__dropdown {
   margin-bottom: 30px;
+  position: relative;
 }
 
 .filter__btn {
   background-color: white;
   color: #0b0c10;
-  padding: 0 20px;
+  padding: 10px 20px;
   border: 1px solid #0b0c10;
   border-radius: 15px;
   cursor: pointer;
@@ -590,26 +590,45 @@ position: relative;
   display: none;
   position: absolute;
   list-style-type: none;
-  padding: 0;
-  top: 50px;
   border: 3px solid white;
   background-color: white;
+  color: #0b0c10;
   border-radius: 20px;
   max-width: 200px;
-  padding: 0 20px;
+  padding: 20px;
+  min-width: 300px;
 }
-
-/* .catalog-menu__link {
-  width: 100%;
-  display: block;
-  color: #0b0c10;
-}
-.catalog-menu__link:hover {
-  background-color: grey;
-} */
 
 .show-filter {
   display: block;
-  top: 50px;
+  top: 60px;
+  right: 0;
   transition: top 0.5s;
 }
+
+.filter__top {
+  margin-bottom: 20px;
+}
+
+.filter__bottom {
+  margin-bottom: 20px;
+}
+
+.filter_apply-btn-inner {
+  display: flex;
+  justify-content: center;
+}
+
+.filter__apply-btn {
+  background-color: #FFCF40;
+  border: 1px solid #FFCF40;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: #0b0c10;
+  width: 200px;
+  text-align: center;
+  display: block;
+  transition: background-color .5s, border .5s;
+}
+
+
