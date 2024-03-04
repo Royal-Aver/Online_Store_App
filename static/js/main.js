@@ -1,11 +1,3 @@
-document.querySelector('.catalog-menu__btn').addEventListener('click', function() {
-  document.querySelector('.catalog-menu__submenu').classList.toggle('show');
-});
-
-
-// document.querySelector('.filter__btn').addEventListener('click', function() {
-//   document.querySelector('.filter__form-menu').classList.toggle('show-filter');
-// });
 
 
 const openModalBtn = document.getElementById('openModal');
@@ -24,4 +16,14 @@ window.addEventListener('click', function(event) {
   if (event.target == modal) {
     modal.style.display = 'none';
   }
+});
+
+
+document.querySelector('.catalog-menu__btn').addEventListener('click', function() {
+  document.querySelector('.catalog-menu__submenu').classList.toggle('show');
+});
+
+
+document.querySelector('.filter__btn').addEventListener('click', function() {
+  document.querySelector('.filter__form-menu').classList.toggle('show-filter');
 });

@@ -149,13 +149,18 @@ position: relative;
   position: absolute;
   left: 0;
   right: 0;
-  top: 200px;
+  top: 190px;
   z-index: 1;
 }
 
 .catalog-menu_container {
   display: flex;
   align-items: center;
+}
+
+.catalog__inner {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .catalog-menu__dropdown {
@@ -558,26 +563,21 @@ position: relative;
   /* position: absolute; */
   left: 0;
   right: 0;
-  top: 200px;
+  /* top: 200px; */
   z-index: 1;
 }
 
 .filter__dropdown {
-  width: 200px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .filter__btn {
-  width: 150px;
   background-color: white;
   color: #0b0c10;
   padding: 0 20px;
   border: 1px solid #0b0c10;
   border-radius: 15px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 30px;
   transition: background-color 0.5s, border-color 0.5s;
 }
 
