@@ -11,6 +11,8 @@ html {
 a {
   text-decoration: none;
   color: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 ul {
@@ -24,21 +26,25 @@ button {
   line-height: 1;
 }
 
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 body {
-  font-family: "Dhurjati", sans-serif;
+  font-family: "Play", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: white;
   background-color: #222629;
   font-size: 24px;
   line-height: 1.3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .header {
@@ -55,24 +61,110 @@ position: relative;
   position: relative;
 }
 
+.search__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 20px;
+}
+
+
+/* header__search */
+
+.search__input {
+  display: inline-block;
+  padding: 15px 30px;
+  width: 500px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 30px;
+  transition: border-color .3s;
+}
+
+.search__input::placeholder {
+  color: white;
+  font-family: "Play", sans-serif;
+  font-size: 18px;
+}
+
+.search__input:hover {
+  border-color: #ff0032;
+}
+
+.search__input:focus {
+  outline: none;
+  background-color: white;
+  color: black;
+}
+
+.search__btn {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: color .5s;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: fill .3s, border-color .3s;
+}
+
+.search__btn:hover {
+  border-color: #ff0032;
+}
+
+.search__btn path {
+  transition: fill .3s;
+}
+
+.search__btn path {
+  fill: white;
+}
+
+.search__btn:hover path {
+  fill: #ff0032;
+}
+
+/* header__menu */
+
 .menu__list {
   display: flex;
   align-items: center;
-  gap: 0 65px;
+  gap: 0 15px;
+}
+
+.menu__item--profile {
+  position: relative;
 }
 
 .menu__link {
-  position: relative;
   background-color: transparent;
-  border: none;
-  font-family: inherit;
-  font-size: 40px;
-  color: inherit;
-  transition: color 0.3s;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: color .5s;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: fill .3s, border-color .3s;
 }
 
 .menu__link:hover {
-  color: grey;
+  border-color: #ff0032;
+}
+
+.menu__link path {
+  transition: fill .3s;
+}
+
+.menu__link path {
+  fill: white;
+}
+
+.menu__link:hover path {
+  fill: #ff0032;
 }
 
 .menu__item--profile:hover {
@@ -84,63 +176,29 @@ position: relative;
 .submenu-list {
   position: absolute;
   display: none;
+  width: 250px;
+  right: -100px;
   z-index: 2;
+  top: 65px;
+  background-color: #222629;
+  border-radius: 10px;
+}
+
+.submenu-list__item:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 .submenu-list__link {
+  display: block;
   color: inherit;
+  transition: background-color 0.3s;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 10px;
 }
 
 .submenu-list__link:hover {
-  color: grey;
-  transition: color 0.3s;
-}
-
-.user-actions {
-  display: flex;
-  align-items: center;
-  gap: 0 20px;
-}
-
-.user-actions__form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0 20px;
-}
-
-.user-actions__item:last-child {
-  margin-left: 80px;
-}
-
-.user-actions__search {
-  display: inline-block;
-  padding: 15px 20px;
-  width: 300px;
-  background-color: transparent;
-  border: 3px solid white;
-  border-radius: 30px;
-}
-
-.user-actions__search:focus {
-  outline: none;
-  background-color: white;
-  color: black;
-}
-
-.user-actions__search-btn {
-  padding: 0 20px;
-  border: 3px solid white;
-  border-radius: 25px;
-  background-color: transparent;
-  color: inherit;
-  line-height: 1.5;
-  transition: background-color 0.5s, color .5s;
-}
-
-.user-actions__search-btn:hover {
-  background-color: white;
-  color: #0b0c10;
+  background-color: #ff0032;
 }
 
 
@@ -159,21 +217,16 @@ position: relative;
   align-items: center;
 }
 
-.catalog__inner {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .catalog-menu__dropdown {
   margin-right: 30px;
 }
 
 .catalog-menu__btn {
   width: 150px;
-  background-color: white;
-  color: #0b0c10;
+  background-color: #222629;
+  color: inherit;
   padding: 10px 20px;
-  border: 1px solid #0b0c10;
+  border: 1px solid #222629;
   border-radius: 15px;
   cursor: pointer;
   display: flex;
@@ -183,8 +236,8 @@ position: relative;
 }
 
 .catalog-menu__btn:hover {
-  background-color: grey;
-  border-color: grey;
+  background-color: #ff0032;
+  border-color: #ff0032;
 }
 
 .catalog-menu__text {
@@ -471,22 +524,24 @@ position: relative;
   color: #0b0c10;
 }
 
-.cart-info__title {
-  width: 250px;
-  margin-bottom: 10px;
+.cart-info__item {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 30px;
 }
 
-.cart-info__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  width: 100%;
+.cart-info__title {
+  width: 250px;
+}
+
+.cart-info__price {
+  width: 200px;
 }
 
 .cart-total {
   color: #0b0c10;
   display: flex;
+  gap: 30px;
 }
 
 
@@ -631,4 +686,181 @@ position: relative;
   transition: background-color .5s, border .5s;
 }
 
+.filter__aply-btn:hover {
+  background-color: #F4A900;
+}
 
+
+/* Profile */
+
+.profile__inner-top {
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #0b0c10;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.profile__title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 36px;
+}
+
+.profile__inner-all-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile__input-inner {
+  width: 50%;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.profile__label {
+  display: block;
+}
+
+.profile__input {
+  width: 90%;
+  border-radius: 25px;
+  padding: 10px 20px;
+
+}
+
+.profile__save-btn {
+  background-color: #FFCF40;
+  border: 1px solid #FFCF40;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: #0b0c10;
+  width: 350px;
+  margin: 0 auto;
+  display: block;
+  transition: background-color .5s, border .5s;
+}
+
+.profile__save-btn:hover {
+  background-color: #F4A900;
+}
+
+.profile__cart {
+  background-color: #fff;
+  color: #0b0c10;
+  padding: 30px;
+  width: 700px;
+  margin: 0 auto 50px;
+}
+
+/* login */
+
+.login__inner-top {
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #0b0c10;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.login__title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 36px;
+}
+
+.login__form {
+  margin-bottom: 30px;
+}
+
+.login__inner-all-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login__input-inner {
+  width: 50%;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.login__label {
+  display: block;
+}
+
+.login__save-btn {
+  background-color: #FFCF40;
+  border: 1px solid #FFCF40;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: #0b0c10;
+  width: 350px;
+  margin: 0 auto;
+  display: block;
+  transition: background-color .5s, border .5s;
+}
+
+.login__save-btn:hover {
+  background-color: #F4A900;
+}
+
+/* registration */
+
+.registration__inner-top {
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #0b0c10;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.registration__title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 36px;
+}
+
+.registration__form {
+  margin-bottom: 30px;
+}
+
+.registration__inner-all-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.registration__input-inner {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.registration__label {
+  display: block;
+}
+
+.registration__input {
+  width: 90%;
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+.registration__log-btn {
+  background-color: #FFCF40;
+  border: 1px solid #FFCF40;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: #0b0c10;
+  width: 350px;
+  margin: 0 auto;
+  display: block;
+  transition: background-color .5s, border .5s;
+}
+
+.registration__log-btn:hover {
+  background-color: #F4A900;
+}

@@ -8,21 +8,20 @@
         <div class="profile_inner">
             <!-- Профиль с данными пользователя -->
             <div class="profile__inner-top">
-                <h3 class="profile__title">Профиль пользователя</h3>
+                <h3 class="profile__title">Profile user {{ form.username.value }}</h3>
                 <form action="{% url "user:profile" %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="row">
-                    <div class="col-md-12 mb-3 text-center">
+
                         {% if user.avatar %}
                         <img src="{{ user.avatar.url }}"
-                             alt="Аватар пользователя" class="img-fluid rounded-circle"
+                             alt="Avatar user" class="img-fluid rounded-circle"
                              style="max-width: 150px;">
                         {% else %}
-                        <img src="{% static " images/baseavatar.jpg" %}"
+                        <img src="{% static "images/baseavatar.jpg" %}"
                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                         style="max-width: 150px;">
                         {% endif %}
-                        <input type="file" class="form-control mt-3" id="id_avatar"
+                        <input type="file" class="profile__input-img" id="id_avatar"
                                name="avatar"
                                accept="image/*">
                         {% if form.avatar.errors %}
@@ -30,12 +29,13 @@
                             {{ form.avatar.errors }}
                         </div>
                         {% endif %}
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <label for="id_first_name" class="form-label">Имя*</label>
-                        <input type="text" class="form-control" id="id_first_name"
+
+                <div class="profile__inner-all-inputs">
+                    <div class="profile__input-inner">
+                        <label for="id_first_name" class="profile__label">First name*</label>
+                        <input type="text" class="profile__input" id="id_first_name"
                                name="first_name"
-                               placeholder="Введите ваше имя"
+                               placeholder="Enter your name"
                                value="{{ form.first_name.value }}"
                                required>
                         {% if form.first_name.errors %}
@@ -44,11 +44,11 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="col-md-12 mb-3">
-                        <label for="id_last_name" class="form-label">Фамилия*</label>
-                        <input type="text" class="form-control" id="id_last_name"
+                    <div class="profile__input-inner">
+                        <label for="id_last_name" class="profile__label">Last name*</label>
+                        <input type="text" class="profile__input" id="id_last_name"
                                name="last_name"
-                               placeholder="Введите вашу фамилию"
+                               placeholder="Enter your last name"
                                value="{{ form.last_name.value }}"
                                required>
                         {% if form.last_name.errors %}
@@ -57,11 +57,11 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="col-md-12 mb-3">
-                        <label for="username" class="form-label">Имя пользователя*</label>
-                        <input type="text" class="form-control" id="username"
+                    <div class="profile__input-inner">
+                        <label for="username" class="profile__label">Username*</label>
+                        <input type="text" class="profile__input" id="username"
                                name="username"
-                               placeholder="Введите ваше имя пользователя"
+                               placeholder="Enter your username"
                                value="{{ form.username.value }}"
                                required>
                         {% if form.username.errors %}
@@ -70,11 +70,11 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="col-md-12 mb-3">
-                        <label for="email" class="form-label">Email*</label>
-                        <input type="email" class="form-control" id="email"
+                    <div class="profile__input-inner">
+                        <label for="email" class="profile__label">Email*</label>
+                        <input type="email" class="profile__input" id="email"
                                name="email"
-                               placeholder="Введите ваш email *youremail@example.com"
+                               placeholder="Enter your email *youremail@example.com"
                                value="{{ form.email.value }}"
                                required>
                         {% if form.email.errors %}
@@ -84,26 +84,24 @@
                         {% endif %}
                     </div>
                 </div>
-                <button type="submit" class="btn btn-dark">Сохранить</button>
+                <button type="submit" class="profile__save-btn">Save</button>
                 </form>
             </div>
 
             <!-- Корзина -->
             {% tag_user_carts request as carts %}
-            <div class="col-md-7">
-                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                    <h3 class="text-center mb-4">Корзина</h3>
+            <div class="profile__cart">
+                    <h3 class="text-center mb-4">Cart</h3>
                     <div class="container" id="cart-items-container">
                         <!-- Разметка корзины -->
                         {% include "carts/includes/included_cart.html" %}
                         <!-- Закончилась разметка корзины -->
                     </div>
                     {% if carts %}
-                    <a class="btn btn-dark" href="{% url 'orders:create_orders' %}">
-                        Оформить заказ
-                    </a>
+                    <button class="profile" href="{% url 'orders:create_orders' %}">
+                        Place your order
+                    </button>
                     {% endif %}
-                </div>
             </div>
         </div>
     </div>

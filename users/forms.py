@@ -17,17 +17,19 @@ class UserLoginForm(AuthenticationForm):
         widget=forms.TextInput(
             attrs={
                 "autofocus": True,
-                "class": "form-control",
-                "placeholder": "Введите ваше имя пользователя",
+                "class": "profile__input",
+                "placeholder": "Enter your username",
             }
         ),
-        label="Имя пользователя",
+        label="Username",
     )
     password = forms.CharField(
         widget=forms.PasswordInput(
-            attrs={"class": "form-control", "placeholder": "Введите ваш пароль"}
+            attrs={
+                "class": "profile__input",
+                "placeholder": "Enter your password",}
         ),
-        label="Пароль",
+        label="Password",
     )
 
 
