@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dhurjati&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/reset.css" %}" />
     <link rel="stylesheet" href="{% static "css/style.css" %}" />
     <title>{{ title }}</title>
@@ -23,6 +23,20 @@
             <img src="{% static "images/logo/logo.png" %}" width="150" alt="Gamer's Galaxy" />
           </a>
 
+          <div class="header__search search">
+            <search>
+              <form action="{% url 'goods:search' %}" method="get" class="search__form">
+                <input class="search__input" type="search" name="q" placeholder="Search" aria-label="Search"/>
+                <button class="search__btn" type="submit">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.3764 12.4769C16.0464 10.1337 15.8302 6.85958 13.728 4.75736C11.3848 2.41421 7.58586 2.41421 5.24271 4.75736C2.89957 7.10051 2.89957 10.8995 5.24271 13.2426C7.34494 15.3449 10.619 15.561 12.9622 13.8911L18.6777 19.6066L20.092 18.1924L14.3764 12.4769ZM12.3138 6.17157C13.8759 7.73367 13.8759 10.2663 12.3138 11.8284C10.7517 13.3905 8.21902 13.3905 6.65692 11.8284C5.09483 10.2663 5.09483 7.73367 6.65692 6.17157C8.21902 4.60948 10.7517 4.60948 12.3138 6.17157Z" fill="black"/>
+                        </svg>
+
+                </button>
+              </form>
+            </search>
+          </div>
+
           <nav class="header__menu menu">
             <ul class="menu__list">
               {% if not user.is_authenticated %}
@@ -32,7 +46,16 @@
               {% else %}
 
                 <li class="menu__item menu__item--profile">
-                    <button class="menu__link">Profile</button>
+                    <button class="menu__link">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                            <g>
+                              <g>
+                                <path d="m64.3,71.6c18,0 32.6-14.6 32.6-32.6s-14.6-32.5-32.6-32.5-32.6,14.6-32.6,32.5 14.6,32.6 32.6,32.6zm0-56.6c13.2,0 24,10.8 24,24s-10.8,24-24,24-24-10.8-24-24 10.8-24 24-24z"/>
+                                <path d="m7.9,122.5h113.2c2.4,0 4.3-1.9 4.3-4.3 0-22.5-18.3-40.9-40.9-40.9h-40c-22.5,0-40.9,18.3-40.9,40.9-1.33227e-15,2.4 1.9,4.3 4.3,4.3zm36.6-36.6h40c16.4,0 29.9,12.2 32,28h-104c2.1-15.7 15.6-28 32-28z"/>
+                              </g>
+                            </g>
+                          </svg>
+                    </button>
 
                     <ul class="menu__submenu submenu-list">
                         <li class='submenu-list__item'>
@@ -50,25 +73,14 @@
                     </ul>
                 {% endif %}
                 </li>
+
+                <li class="menu__item">
+                    <a href="{% url "user:users_cart" %}" class="menu__link">
+                        <svg width="38" height="38" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title/><g data-name="1" id="_1"><path d="M397.78,316H192.65A15,15,0,0,1,178,304.33L143.46,153.85a15,15,0,0,1,14.62-18.36H432.35A15,15,0,0,1,447,153.85L412.4,304.33A15,15,0,0,1,397.78,316ZM204.59,286H385.84l27.67-120.48H176.91Z"/><path d="M222,450a57.48,57.48,0,1,1,57.48-57.48A57.54,57.54,0,0,1,222,450Zm0-84.95a27.48,27.48,0,1,0,27.48,27.47A27.5,27.5,0,0,0,222,365.05Z"/><path d="M368.42,450a57.48,57.48,0,1,1,57.48-57.48A57.54,57.54,0,0,1,368.42,450Zm0-84.95a27.48,27.48,0,1,0,27.48,27.47A27.5,27.5,0,0,0,368.42,365.05Z"/><path d="M158.08,165.49a15,15,0,0,1-14.23-10.26L118.14,78H70.7a15,15,0,1,1,0-30H129a15,15,0,0,1,14.23,10.26l29.13,87.49a15,15,0,0,1-14.23,19.74Z"/></g></svg>
+                    </a>
+                </li>
             </ul>
           </nav>
-
-          <ul class="user-actions">
-            <li class="user-actions__item">
-              <a href="{% url "user:users_cart" %}" class="user-actions__link">
-                <img src="{% static "images/header/cart.png" %}" width="30" alt="Cart" />
-              </a>
-            </li>
-
-            <li class="user-actions__item">
-              <search>
-                <form action="{% url 'goods:search' %}" method="get" class="user-actions__form">
-                  <input class="user-actions__search" type="search" name="q" placeholder="Search" aria-label="Search"/>
-                  <button class="user-actions__search-btn" type="submit">Search</button>
-                </form>
-              </search>
-            </li>
-          </ul>
         </div>
       </div>
     </header>
@@ -82,8 +94,9 @@
                         <button class="catalog-menu__btn" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <span class="catalog-menu__text">Catalog</span>
-                        <img class="catalog-menu__image" src="{% static "images/icons/squares.png" %}" alt="Catalog Icon" width="16"
-                        height="16">
+                        <svg id="Flat" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                            <path d="M120,48v64a7.9954,7.9954,0,0,1-8,8H48a7.99539,7.99539,0,0,1-8-8V48a7.99539,7.99539,0,0,1,8-8h64A7.9954,7.9954,0,0,1,120,48Zm88-8H144a7.99539,7.99539,0,0,0-8,8v64a7.99539,7.99539,0,0,0,8,8h64a7.9954,7.9954,0,0,0,8-8V48A7.9954,7.9954,0,0,0,208,40Zm-96,96H48a7.99539,7.99539,0,0,0-8,8v64a7.99539,7.99539,0,0,0,8,8h64a7.9954,7.9954,0,0,0,8-8V144A7.9954,7.9954,0,0,0,112,136Zm96,0H144a7.99539,7.99539,0,0,0-8,8v64a7.99539,7.99539,0,0,0,8,8h64a7.9954,7.9954,0,0,0,8-8V144A7.9954,7.9954,0,0,0,208,136Z"/>
+                          </svg>
                         </button>
 
                     {% tag_categories as categories %}
