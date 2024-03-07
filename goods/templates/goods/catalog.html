@@ -48,9 +48,9 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="filter_apply-btn-inner">
+
                             <button type="submit" class="filter__apply-btn">Apply</button>
-                        </div>
+
                     </form>
             </div>
 
@@ -63,16 +63,16 @@
             </div>
         </div>
 
-
         <ul class="product-list">
             {% for product in products %}
-            <!-- Карта товара -->
             <li class="product-list__card product-card">
                 {% if product.image %}
-                <img height='370' src="{{ product.image.url }}" class="product-card__image" alt="{{ product.title }}">
+                    <img src="{{ product.image.url }}" class="product-card__image" alt="{{ product.title }}">
                 {% else %}
-                <img height='400' src="{% static " images/Not found image.png" %}" class="product-card__image" alt="{{
+                <div class="product-card__image-container">
+                    <img height='400' src="{% static " images/Not found image.png" %}" class="product-card__image" alt="{{
                 product.title }}">
+                </div>
                 {% endif %}
                 <div class="product-card__body">
                     <a class='product-card__title-link' href="{% url "goods:product" product.slug %}">
@@ -103,7 +103,7 @@
                         <p><strong>{{ product.sale_price }} $</strong></p>
                         {% endif %}
                         <a href="{% url "cart:cart_add" product.slug %}" class="product-card__add-to-cart">
-                        <img class="mx-1" src=" {% static " icons/cart-plus.svg" %}" alt="Catalog Icon"
+                        <img class="mx-1" src=" {% static "icons/cart-plus.svg" %}" alt="Add product in cart"
                         width="32" height="32">
                         </a>
                     </div>
