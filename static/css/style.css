@@ -668,11 +668,13 @@ position: relative;
   overflow: hidden;
   max-height: 550px;
   width: 30%;
-  transition: border-color .5s;
+  transition: border-color .5s, background-color .5s, color .5s;
 }
 
 .product-card:hover {
   border-color: #ff0032;
+  background-color: #fff;
+  color:#0b0c10;
 }
 
 .product-card__image {
@@ -837,7 +839,7 @@ position: relative;
   transition: background-color .5s, border .5s;
 }
 
-.profile__save-btn:hover:hover {
+.profile__save-btn:hover {
     background-color: #ff0032;
     border: 1px solid #ff0032;
 }
@@ -846,9 +848,6 @@ position: relative;
   display: flex;
   flex-direction: column;
   border-radius: 30px;
-}
-
-.profile__cart {
   background-color: #fff;
   color: #0b0c10;
   padding: 30px;
@@ -1056,4 +1055,139 @@ position: relative;
 .product__add-link:hover {
   background-color: #ff0032;
   border: 1px solid #ff0032;
+}
+
+
+/* user-cart in users-cart.html */
+.user-cart__inner {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  background-color: #fff;
+  color: #0b0c10;
+  padding: 30px;
+  width: 700px;
+  margin: 0 auto 50px;
+}
+
+.user-cart__btn {
+  background-color: #0b0c10;
+  border: 1px solid #0b0c10;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: 350px;
+  margin: 0 auto;
+  display: block;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  transition: background-color .5s, border .5s;
+}
+
+.user-cart__btn:hover {
+  background-color: #ff0032;
+  border: 1px solid #ff0032;
+}
+
+
+/* create_orders in create_orders.html */
+
+.create_orders {
+  margin-bottom: 30px;
+}
+
+.create_orders__container {
+  background-color: #fff;
+  color: #0b0c10;
+  width: 700px;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.create_orders__inner-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.create_orders__title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.create_orders__inner-all-inputs {
+  margin-bottom: 20px;
+}
+
+.create_orders__inputs-top {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.create_orders__input-inner {
+  width: 50%;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.create_orders__label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 1px;
+  padding-left: 20px;
+}
+
+.create_orders__input {
+  width: 90%;
+  padding: 15px 30px;
+  background-color: transparent;
+  border: 3px solid #0b0c10;
+  border-radius: 30px;
+  transition: border-color .3s;
+}
+
+.create_orders__input::placeholder {
+  color: #0b0c10;
+  font-family: "Play", sans-serif;
+  font-size: 14px;
+}
+
+.create_orders__input:hover {
+  border-color: #ff0032;
+}
+
+.create_orders__input:focus {
+  outline: none;
+  background-color: white;
+  color: black;
+}
+
+.delivery__label {
+  font-size: 16px;
+}
+
+.field-adress {
+  height: 100px;;
+}
+
+.payment__label {
+  font-size: 16px;
+}
+
+.create_orders__btn {
+  background-color: #0b0c10;
+  border: 1px solid #0b0c10;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: 350px;
+  margin: 0 auto;
+  display: block;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  transition: background-color .5s, border .5s;
+}
+
+.create_orders__btn:hover {
+    background-color: #ff0032;
+    border: 1px solid #ff0032;
 }
