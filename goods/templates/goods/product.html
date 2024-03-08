@@ -6,43 +6,26 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="card mb-4 custom-shadow">
-        <div class="row">
-            <!-- Миниатюры -->
-            <div class="col-md-4">
+<section class='product'>
+    <div class="product_container container">
+        <div class='product__card'>
+            <div class="product__inner">
                 <img src="{{ product.image.url }}"
-                    class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
-            </div>
-            <div class="col-md-4 ">
-                <p class="product_id mt-3">id: {{ product.display_id }}</p>
-            </div>
-            <!-- Увеличить изображение в модальном окне -->
-            <div class="modal fade" id="imageModal1" tabindex="-1"
-                aria-labelledby="imageModal1Label" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="imageModal1Label">Изображение 1</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Закрыть"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="../deps/images/goods/set of tea table and three chairs.jpg"
-                                class="img-fluid" alt="Изображение 1">
-                        </div>
-                    </div>
+                    class="product__image" data-bs-toggle="modal" data-bs-target="#imageModal1">
+
+                <div class="product__info">
+                    <h5 class="product__title">{{ product.title }}</h5>
+                    <p class="product__description">{{ product.description }}</p>
                 </div>
             </div>
-        </div>
-        <!-- Описание товара -->
-        <div class="card-body">
-            <p class="card-text">Цена: <strong>{{ product.sale_price }} руб.</strong></p>
-            <h5 class="card-title">{{ product.title }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <a href="{% url "cart:cart_add" product.slug %}" class="btn btn-dark add-to-cart">Добавить в корзину</a>
+
+            <div class="product__body">
+                <p class="product__id">id: {{ product.display_id }}</p>
+                <p class="product__price">price: {{ product.sale_price }} $</p>
+                <a class="product__add-link" href="{% url "cart:cart_add" product.slug %}" >Add to cart</a>
+            </div>
         </div>
     </div>
-</div>
+</section>
 {% endblock  %}
 

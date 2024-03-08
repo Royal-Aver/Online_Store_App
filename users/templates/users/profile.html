@@ -11,17 +11,16 @@
                 <h3 class="profile__title">Profile user {{ form.username.value }}</h3>
                 <form action="{% url "user:profile" %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-
+                    <div class="profile__avatar avatar">
                         {% if user.avatar %}
                         <img src="{{ user.avatar.url }}"
-                             alt="Avatar user" class="img-fluid rounded-circle"
-                             style="max-width: 150px;">
+                             alt="Avatar user" class="avatar__img">
                         {% else %}
                         <img src="{% static "images/baseavatar.jpg" %}"
-                        alt="Аватар пользователя" class="img-fluid rounded-circle"
-                        style="max-width: 150px;">
+                        alt="Аватар пользователя" class="avatar__img">
                         {% endif %}
-                        <input type="file" class="profile__input-img" id="id_avatar"
+                        <label for="id_avatar" class="avatar__label">Select file</label>
+                        <input type="file" class="avatar__input" id="id_avatar"
                                name="avatar"
                                accept="image/*">
                         {% if form.avatar.errors %}
@@ -29,6 +28,7 @@
                             {{ form.avatar.errors }}
                         </div>
                         {% endif %}
+                    </div>
 
                 <div class="profile__inner-all-inputs">
                     <div class="profile__input-inner">
@@ -88,17 +88,14 @@
                 </form>
             </div>
 
-            <!-- Корзина -->
+            <!-- Cart -->
             {% tag_user_carts request as carts %}
             <div class="profile__cart">
-                    <h3 class="text-center mb-4">Cart</h3>
-                    <div class="container" id="cart-items-container">
-                        <!-- Разметка корзины -->
-                        {% include "carts/includes/included_cart.html" %}
-                        <!-- Закончилась разметка корзины -->
-                    </div>
+
+                    {% include "carts/includes/included_cart.html" %}
+
                     {% if carts %}
-                    <button class="profile" href="{% url 'orders:create_orders' %}">
+                    <button class="profile__cart-btn" href="{% url 'orders:create_orders' %}">
                         Place your order
                     </button>
                     {% endif %}
