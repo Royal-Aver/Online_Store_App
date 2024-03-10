@@ -48,17 +48,15 @@
                                 </label>
                             </div>
                         </div>
-
                             <button type="submit" class="filter__apply-btn">Apply</button>
-
                     </form>
             </div>
 
                 {% if request.GET.q %}
-                <h3 class="mt-4">Search results by request {{ request.GET.q }}</h3>
-                {% if not products %}
-                <h2 class="mt-4">Nothing found on this request</h2>
-                {% endif %}
+                    <p class="catalog__search-result">Search results by request {{ request.GET.q }}</p>
+                    {% if not products %}
+                    <p class="catalog__search-result">Nothing found on this request</p>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>
