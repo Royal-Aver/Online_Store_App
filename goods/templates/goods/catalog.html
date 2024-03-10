@@ -23,7 +23,7 @@
                             {% if request.GET.q %}
                                 <input type="hidden" name="q" value="{{ request.GET.q }}">
                             {% endif %}
-                            <label class="filter__top-label filter-label" for="flexCheckDefault">
+                            <label class="filter__top-label filter-label filter-label--checkbox" for="flexCheckDefault">
                                 Promotional products
                             </label>
                         </div>
@@ -63,6 +63,7 @@
             </div>
         </div>
 
+        <!-- Product card -->
         <ul class="product-list">
             {% for product in products %}
             <li class="product-list__card product-card">
@@ -114,22 +115,28 @@
         {% if products %}
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="pagination__item {% if not products.has_previous %}disabled{% endif %}">
-                    <a class="pagination__link" href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}
-                            {% else %} # {% endif %}">Previous</a>
+                <li class="pagination__item">
+                    {% if products.has_previous %}
+                        <a class="pagination__link" href="?{% change_params page=products.previous_page_number %}">Previous</a>
+                    {% else %}
+                        <span class="pagination__link disabled">Previous</span>
+                    {% endif %}
                 </li>
 
                 {% for page in products.paginator.page_range %}
                 {% if page >= products.number|add:-2 and page <= products.number|add:2 %}
-                <li class="pagination__item {% if products.number == page %}active{% endif %}">
-                    <a class="pagination__link" href="?{% change_params page=page %}">{{ page }}</a>
+                <li class="pagination__item">
+                    <a class="pagination__link {% if products.number == page %}pagination__active{% endif %}" href="?{% change_params page=page %}">{{ page }}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
 
-                <li class="pagination__item {% if not products.has_next %}disabled{% endif %}">
-                    <a class="pagination__link" href="{% if products.has_next %}?{% change_params page=products.next_page_number %}
-                                {% else %} # {% endif %}">Next</a>
+                <li class="pagination__item">
+                    {% if products.has_next %}
+                        <a class="pagination__link" href="?{% change_params page=products.next_page_number %}">Previous</a>
+                    {% else %}
+                        <span class="pagination__link disabled">Previous</span>
+                    {% endif %}
                 </li>
             </ul>
         </nav>

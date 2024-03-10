@@ -180,7 +180,7 @@ position: relative;
   width: 250px;
   right: -100px;
   z-index: 3;
-  top: 65px;
+  top: 60px;
   background-color: #222629;
   border-radius: 10px;
 }
@@ -624,6 +624,34 @@ position: relative;
   transition: top 0.5s;
 }
 
+.filter-input[type="checkbox"],
+.filter-input[type="radio"] {
+    display: none;
+}
+
+.filter-label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 25px;
+}
+
+.filter-label::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ff0032;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.filter-input[type="checkbox"]:checked + .filter-label::before,
+.filter-input[type="radio"]:checked + .filter-label::before {
+  background-color: #ff0032;
+}
+
 .filter__top {
   margin-bottom: 20px;
 }
@@ -650,6 +678,7 @@ position: relative;
   background-color: #ff0032;
   border: 1px solid #ff0032;
 }
+
 
 /* product-card in catalog.html */
 
@@ -733,8 +762,19 @@ position: relative;
   margin-bottom: 40px;
 }
 
+.pagination__link.pagination__active {
+  background-color: #ff0032;
+  padding: 0px 10px;
+  border-radius: 40%;
+}
 
-/* Profile */
+.pagination__link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* Profile in profile.html*/
 
 .profile__inner-top {
   max-width: 850px;
@@ -875,7 +915,7 @@ position: relative;
 }
 
 
-/* login */
+/* Login in login.html */
 
 .login__inner-top {
   max-width: 550px;
@@ -885,6 +925,7 @@ position: relative;
   padding: 30px;
   margin-bottom: 30px;
   text-align: center;
+  border-radius: 30px;
 }
 
 .login__title {
@@ -903,7 +944,7 @@ position: relative;
 }
 
 .login__input-inner {
-  width: 50%;
+  width: 100%;
   margin-bottom: 20px;
   display: inline-block;
 }
@@ -913,20 +954,40 @@ position: relative;
 }
 
 .login__save-btn {
-  background-color: #FFCF40;
-  border: 1px solid #FFCF40;
+  background-color: #0b0c10;
+  border: 1px solid #0b0c10;
   border-radius: 25px;
   padding: 10px 20px;
-  color: #0b0c10;
   width: 350px;
   margin: 0 auto;
   display: block;
+  font-weight: 700;
+  color: white;
+  text-align: center;
   transition: background-color .5s, border .5s;
 }
 
 .login__save-btn:hover {
-  background-color: #F4A900;
+    background-color: #ff0032;
+    border: 1px solid #ff0032;
 }
+
+.login__bottom-text {
+  font-size: 16px;
+}
+
+.login__bottom-link {
+  font-size: 20px;
+}
+
+.login__bottom-link {
+  transition: color .5s;
+}
+
+.login__bottom-link:hover {
+    color: #ff0032;
+}
+
 
 /* registration */
 
