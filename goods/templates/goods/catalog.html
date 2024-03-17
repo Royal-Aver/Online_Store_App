@@ -95,11 +95,11 @@
                     <p class="product-card__id">id: {{ product.display_id }}</p>
                     <div class="product-card__price">
                         {% if product.discount %}
-                        <p><strong>{{ product.sale_price }} $</strong></p>
-                        <p><s>{{ product.price }}</s> $</p>
+                        <p class='product-card__price'>{{ product.sale_price }} $</p>
+                        <p class='product-card__price-old'><s>{{ product.price }}</s> $</p>
                         <span class="product-card__discount-badge">{{ product.discount }} %</span>
                         {% else %}
-                        <p><strong>{{ product.sale_price }} $</strong></p>
+                        <p class='product-card__price'>{{ product.sale_price }} $</p>
                         {% endif %}
                         <a href="{% url "cart:cart_add" product.slug %}" class="product-card__add-to-cart">
                         <img class="mx-1" src=" {% static "icons/cart-plus.svg" %}" alt="Add product in cart"

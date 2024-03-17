@@ -2,6 +2,7 @@
 
 
 <div class="cart-info">
+
         {% for cart in carts %}
         <div class="cart-info__item">
             <h5 class="cart-info__title">{{ cart.product.title }}</h5>
@@ -11,11 +12,12 @@
             alt="Catalog Icon" width="16" height="16">
             </a>
         </div>
-
         {% endfor %}
+
     <div class="cart-total">
         <p class="cart-total__text">Total {{ carts.total_quantity }} item(s) in cart  </p>
         <p class="cart-total__text1">{{ carts.total_price }} $</p>
     </div>
+    
 </div>
 
