@@ -1,3 +1,23 @@
+The site can be accessed at https://be1ka.pythonanywhere.com/
+
+In the project "Online store selling computer games" realized:
+1. HTML markup taking into account the DRY principle;
+2. Models of the product catalog and the goods themselves;
+3. Full-text search;
+4. Pagination when viewing the product catalog;
+5. URL converters;
+6. Displaying product pages via get-requests;
+7. Implemented custom template tags to display parts of the application on other pages;
+8. PostgreSQL relational DBMS is connected and used;
+9. Authorization and registration of users using AbstractUser model;
+10. User profile with the display of information specified at registration, the ability to change it and add an avatar;
+11. css-styles display in the authorization form is implemented from the backend, in the registration form from the frontend;
+12. Customization of user login / registration form;
+13. Display of separate markup blocks on pages, depending on who is authorized (admin, staff, user);
+14. Implemented the ability to add items to the cart for unauthorized users;
+15. Implemented the ability to make an order of goods. In the database the amount of purchased goods is reduced.
+
+
 В проекте "Онлайн магазин продажи компьютерных игр" реализованы:
 1. Разметка HTML с учетом принципа DRY;
 2. Модели каталога товаров и непосредственно самих товаров;
