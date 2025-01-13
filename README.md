@@ -1,5 +1,3 @@
-The site can be accessed at https://be1ka.pythonanywhere.com/
-
 In the project "Online store selling computer games" realized:
 1. HTML markup taking into account the DRY principle;
 2. Models of the product catalog and the goods themselves;
